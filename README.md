@@ -44,6 +44,7 @@ Inside SpellCheker Constructor ..
 Inside setSpellChecker.
 Inside SpellCheker method checkSpelling ...
 
+
 # Final Note: 
 So if you want to call other class methods anytime from your class methods then to get the object of that class, 
 1) you need to create property tag under your class bean tag, and under that property tag put the bean tag of class which we want to call. 
