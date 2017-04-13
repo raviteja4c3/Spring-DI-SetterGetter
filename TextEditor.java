@@ -17,6 +17,9 @@ public class TextEditor {
 	   public void spellCheck() {
 	      spellChecker.checkSpelling();
 	   }  
-
+	
+ 	   public TextEditor() { //This method is not required, just to check when object for this class is creaed.
+		   System.out.println("Inside Text Editor Constructor..");
+	   } 
 	   
 }
