@@ -38,6 +38,12 @@ As the object creation of 	'SpellChecker' is needed to call its method (checkSpe
 	
 Note: The property name in Beans.xml and the variable of class type defined in TextEditor should be same [<property name = "spellChecker">, private SpellChecker spellChecker;]	
 
+# Output: Run MainApp.java
+Inside Text Editor Constructor..
+Inside SpellCheker Constructor ..
+Inside setSpellChecker.
+Inside SpellCheker method checkSpelling ...
+
 # Final Note: 
 So if you want to call other class methods anytime from your class methods then to get the object of that class, 
 1) you need to create property tag under your class bean tag, and under that property tag put the bean tag of class which we want to call. 
