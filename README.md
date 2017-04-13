@@ -1,5 +1,5 @@
 # Spring-DI-SetterGetter
-DI Using property tag in beans config file &amp; setter getter methods
+DI Using property tag in beans config file &amp; using setter getter methods
 ------------------------------	
 Suppose you have a class 'MainApp' and you want to initilize a bean 'textEditor' [from that call some other class objects anytime] like below, 
 
