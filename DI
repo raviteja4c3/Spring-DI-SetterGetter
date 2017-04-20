@@ -1,0 +1,47 @@
+DI:
+=================================================================================================================   
+-> Use Beans.xml with property [Covers one bean]
+	<bean id = "textEditor" class = "com.tpoint.TextEditor">
+      <property name = "spellChecker">
+         <bean id = "spellChecker" class = "com.tpoint.SpellChecker"/>
+      </property>      
+   </bean> 
+  [ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+   MyService myService = context.getBean("textEditor",MyService.class);]
+=================================================================================================================   
+-> Use Beans.xml with constructor-arg [Covers one bean]
+	<bean id = "textEditor" class = "com.tpoint.TextEditor">
+	  	<constructor-arg index="0">
+	  		<bean id="spellCheker" class="com.tpoint.SpellChecker"/>
+	  	</constructor-arg>
+    </bean>
+  [ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+   MyService myService = context.getBean("textEditor",MyService.class);]
+=================================================================================================================	
+-> Use Beans.xml with <context:component-scan base-package="com.services"> [no need to write property, constructor-arg. 
+This covers beans present in entire package mentioned]
+
+   [ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+	MyService myService = context.getBean("PrintService",MyService.class);] 
+    //Here 'PrintService' is defined in the bean class as '@Service("PrintService")'
+=================================================================================================================
+-> All the above three ways we can declare beans using Beans.xml. 
+Now we declare using Java based annotaion with out using  bean config file. For this we need to create a config class and inside which we declare beans one by one, or we can declare a package which covers all the beans present in that package.
+Config class with each bean definition.
+        @Configuration
+        public class HelConfig {
+           @Bean 
+           public HelloWorld helloWorld(){
+              return new HelloWorld();
+           }
+        }
+                 
+Config Class with a package declaration.
+        @Configuration
+        @ComponentScan("com.config")
+                public class HelloWorldConfig {
+                   
+                }
+    [AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+    HelloWorld hw = (HelloWorld)ctx.getBean("helloworld");]     
+=================================================================================================================
